@@ -1,20 +1,38 @@
 # web_crawler.py
 import csv
 
-def web_crawler(csv_file="first_100_domains.csv"):
+def web_crawler(csv_file="testNewURLs.csv"):
     """
-    Reads domains from a CSV file and converts them to HTTPS URLs.
+    Reads full URLs from a CSV file and returns them as a list.
     """
-    print("[INFO] Reading domains from CSV...")
+    print("[INFO] Reading URLs from CSV...")
     urls = []
     with open(csv_file, "r") as file:
         reader = csv.DictReader(file)
         for row in reader:
-            domain = row['domain'].strip()
-            url = f"https://{domain}"  # Convert domain to full URL
+            url = row['url'].strip()  # Directly read the 'url' column
             urls.append(url)
     print(f"[INFO] Found {len(urls)} URLs.")
     return urls
+
+
+# web_crawler.py
+# import csv
+
+# def web_crawler(csv_file="first_100_domains.csv"):
+#     """
+#     Reads domains from a CSV file and converts them to HTTPS URLs.
+#     """
+#     print("[INFO] Reading domains from CSV...")
+#     urls = []
+#     with open(csv_file, "r") as file:
+#         reader = csv.DictReader(file)
+#         for row in reader:
+#             domain = row['domain'].strip()
+#             url = f"https://{domain}"  # Convert domain to full URL
+#             urls.append(url)
+#     print(f"[INFO] Found {len(urls)} URLs.")
+#     return urls
 
 
 # # web_crawler.py
